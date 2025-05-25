@@ -81,6 +81,8 @@ PS1+="${JOVIAL_PALETTE[typing]}╰──➤ %f"
 RPS1='${JOVIAL_PALETTE[time]}%T%f'
 
 # Aliases
+# Vim to Neovim
+alias vim='nvim'
 # Orphan Packages
 alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || echo "no orphans to remove"'
 
