@@ -1,0 +1,31 @@
+%YAML 1.3
+---
+- Key: [Open Emoji Panel, pressed]
+- KeyPress:
+  - [Super_L, period]
+  - click
+...
+---
+- Key: [Snipping Tool, pressed]
+- KeyPress:
+  - Print
+  - click
+...
+---
+- Key: [MultiPlatform Search, pressed]
+- KeyPress:
+  - [Alt_L, space]
+  - click
+...
+---
+- Key: [Voice Dictation, pressed]
+- KeyPress:
+  - XF86_MonBrightnessUp
+  - click
+...
+---
+- Key: [MultiPlatform Back, pressed]
+- KeyPress:
+  - XF86_MonBrightnessDown
+  - click
+...
