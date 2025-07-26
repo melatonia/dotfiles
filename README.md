@@ -7,7 +7,7 @@ Feel free to use them :)
 ## Things I Use
 |||
 | ------------- | ------------- |
-|Distro|Arch [Linux](https://archlinux.org/)|
+|Distro|[Arch Linux](https://archlinux.org/)|
 |Shell|[zsh](https://github.com/melatonia/dotfiles/blob/main/.zshrc)|
 |Desktop Environment|[Cosmic](https://system76.com/cosmic/)|
 |Browser|[Firefox](https://www.firefox.com/)|
