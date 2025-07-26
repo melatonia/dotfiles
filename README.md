@@ -13,6 +13,6 @@ Feel free to use them :)
 |Browser|Firefox|
 
 ## Honorable Mentions
-In godot, 
+In Godot, 
 "Base Color = 323232"
 "Accent Color = 7cb987" 
