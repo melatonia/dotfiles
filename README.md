@@ -5,5 +5,7 @@ Feel free to use them :)
 ![Cosmic Screenshot](misc/Cosmic.png)
 
 ## Things I Use
-| Shell |  zsh  |
+|     App       |     I Use     |
+| ------------- | ------------- |
+| Shell         |       zsh     |
 |Browser|Firefox|
