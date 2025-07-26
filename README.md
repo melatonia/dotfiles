@@ -12,3 +12,7 @@ Feel free to use them :)
 |Desktop Environment|Cosmic|
 |Browser|Firefox|
 
+## Honorable Mentions
+In godot, 
+"Base Color = 323232"
+"Accent Color = 7cb987" 
