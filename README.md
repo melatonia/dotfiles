@@ -7,12 +7,12 @@ Feel free to use them :)
 ## Things I Use
 |||
 | ------------- | ------------- |
-|Distro|Arch Linux|
-|Shell|zsh|
-|Desktop Environment|Cosmic|
-|Browser|Firefox|
+|Distro|Arch [Linux](https://archlinux.org/)|
+|Shell|[zsh](https://github.com/melatonia/dotfiles/blob/main/.zshrc)|
+|Desktop Environment|[Cosmic](https://system76.com/cosmic/)|
+|Browser|[Firefox](https://www.firefox.com/)|
 
 ## Honorable Mentions
-In Godot, 
+In [Godot](https://godotengine.org/), 
 "Base Color = 323232"
 "Accent Color = 7cb987" 
