@@ -7,5 +7,8 @@ Feel free to use them :)
 ## Things I Use
 |||
 | ------------- | ------------- |
+|Distro|Arch Linux|
 |Shell|zsh|
+|Desktop Environment|Cosmic|
 |Browser|Firefox|
+
