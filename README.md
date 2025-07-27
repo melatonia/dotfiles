@@ -26,4 +26,5 @@ The unedited version of the wallpaper:
 - [A_stormy_stellar_nursery_esa_379309.jpg](original/A_stormy_stellar_nursery_esa_379309.jpg)
     - Source: https://www.esa.int/ESA_Multimedia/Images/2017/06/A_stormy_stellar_nursery
     - License: [CC BY 4.0 INT](https://creativecommons.org/licenses/by/4.0/deed.en)
+    - 
 Wallpaper is converted to [Gruvbox](https://github.com/morhetz/gruvbox) by [Image Go Nord](https://ign.schrodinger-hat.it/color-schemes)
