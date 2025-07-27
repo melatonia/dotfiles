@@ -21,6 +21,7 @@ In [Godot](https://godotengine.org/),
 "Accent Color = 7cb987" 
 
 ## Thanks & Honorable Mentions
+Ascii [cats](https://github.com/melatonia/dotfiles/blob/main/cats) aren't mine. I just copy pasted them from internet.
 PrismLauncher theme is edited from [Mellow](https://github.com/PrismLauncher/Themes/tree/main/themes/Mellow)  
 The unedited version of the wallpaper:
 - [A_stormy_stellar_nursery_esa_379309.jpg](original/A_stormy_stellar_nursery_esa_379309.jpg)
