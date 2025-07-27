@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "AlternateBase": "#1b1b1b",
+    "Base": "#272727",
+    "BrightText": "#BEBEBE",
+    "Button": "#2f2f2f",
+    "ButtonText": "#C4C4C4",
+    "Highlight": "#454545",
+    "HighlightedText": "#BEBEBE",
+    "Link": "#6296be",
+    "Text": "#C4C4C4",
+    "ToolTipBase": "#C4C4C4",
+    "ToolTipText": "#C4C4C4",
+    "Window": "#1b1b1b",
+    "WindowText": "#C4C4C4",
+    "fadeAmount": 0.7,
+    "fadeColor": "#2a2a2d"
+  },
+  "name": "Cosmic",
+  "qssFilePath": "themeStyle.css",
+  "widgets": "Fusion"
+}
