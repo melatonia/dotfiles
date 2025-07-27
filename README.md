@@ -21,7 +21,7 @@ In [Godot](https://godotengine.org/),
 "Accent Color = 7cb987" 
 
 ## Thanks & Honorable Mentions
-PrismLauncher theme is edited from [Mellow](https://github.com/PrismLauncher/Themes/tree/main/themes/Mellow)
+PrismLauncher theme is edited from [Mellow](https://github.com/PrismLauncher/Themes/tree/main/themes/Mellow)  
 The unedited version of the wallpaper:
 - [A_stormy_stellar_nursery_esa_379309.jpg](original/A_stormy_stellar_nursery_esa_379309.jpg)
     - Source: https://www.esa.int/ESA_Multimedia/Images/2017/06/A_stormy_stellar_nursery
