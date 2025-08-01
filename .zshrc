@@ -69,7 +69,7 @@ typeset -gA JOVIAL_PALETTE=(
 # --- Prompt Definition ---
 PS1=""
 PS1+="${JOVIAL_PALETTE[normal]}╭─["
-PS1+="${JOVIAL_PALETTE[user]}$(whoami)%f"
+PS1+="${JOVIAL_PALETTE[user]}%n%f"
 PS1+="${JOVIAL_PALETTE[normal]}] "
 PS1+="${JOVIAL_PALETTE[conj.]}as%f "
 PS1+="${JOVIAL_PALETTE[host]}%m%f "
