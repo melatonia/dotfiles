@@ -95,3 +95,12 @@ alias ls='ls --color=auto'
 alias la='ls -la --color=auto'
 alias l.='ls -a --color=auto'
 alias ll='ls -l --color=auto'
+
+alias update "yay && rustup update"
+
+cat <<'EOF'
+      |\      _,,,---,,_
+ZZZzz /,`.-'`'    -.  ;-;;,_
+     |,4-  ) )-,_. ,\ (  `'-'
+    '---''(_/--'  `-'\_)  melo.
+EOF
