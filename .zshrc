@@ -96,7 +96,7 @@ alias la='ls -la --color=auto'
 alias l.='ls -a --color=auto'
 alias ll='ls -l --color=auto'
 
-alias update="yay && rustup update && orphans"
+alias update="yay && rustup update && orphans && sudo flatpak update && sudo flatpak uninstall --unused && sudo flatpak repair"
 
 cat <<'EOF'
       |\      _,,,---,,_
