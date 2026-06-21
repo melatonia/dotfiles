@@ -18,3 +18,10 @@
 	autoSetupRemote = true
 [commit]
 	verbose = true
+[alias]
+	lg = log --oneline --graph --decorate --all
+	st = status -sb
+	co = checkout
+	br = branch
+	amend = commit --amend --no-edit
+	undo = reset --soft HEAD~1
