@@ -1,0 +1,20 @@
+[user]
+	name = melatonia
+	email = 110846681+melatonia@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	pager = delta
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+[interactive]
+	diffFilter = delta --color-only
+[alias]
+	lg = log --oneline --graph --decorate --all
+	st = status -sb
+[push]
+	autoSetupRemote = true
+[commit]
+	verbose = true
