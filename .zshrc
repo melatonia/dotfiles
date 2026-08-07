@@ -37,33 +37,11 @@ zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 bindkey -e  # Emacs keybindings
 
 # ── Plugins ───────────────────────────────────────────────────────────────────
-[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-## ── "Command not found" pacman handler ───────────────────────────────────────
-#function command_not_found_handler {
-#  local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
-#  printf 'zsh: command not found: %s\n' "$1"
-#  local entries=(
-#    ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"}
-#  )
-#  if (( ${#entries[@]} )); then
-#    printf "${bright}$1${reset} may be found in the following packages:\n"
-#    local pkg
-#    for entry in "${entries[@]}"; do
-#      local fields=( ${(0)entry} )
-#      if [[ "$pkg" != "${fields[2]}" ]]; then
-#        printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
-#      fi
-#      printf '    /%s\n' "${fields[4]}"
-#      pkg="${fields[2]}"
-#    done
-#  fi
-#  return 127
-#}
+[[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
 setopt PROMPT_SUBST
@@ -217,7 +195,7 @@ alias gp='git push'
 # lazygit
 alias lg='lazygit'
 
-# ls / eza  (eza is the maintained fork of exa — install with: paru -S eza)
+# ls / eza
 if command -v eza &>/dev/null; then
   alias ls='eza --icons --group-directories-first'
   alias ll='eza -lh --icons --group-directories-first --git'
@@ -231,48 +209,24 @@ else
   alias l.='ls -a --color=auto'
 fi
 
-# paru / packages
-alias yay='paru'
-alias packages='pacman -Qe'
-
-function orphans() {
-  local pkgs
-  pkgs=(${(f)"$(pacman -Qdtq)"})
-  if (( ${#pkgs[@]} == 0 )); then
-    echo "no orphans to remove"
-    return 0
-  fi
-  echo "orphaned packages:"
-  printf '  %s\n' "${pkgs[@]}"
-  echo ""
-  read -q "REPLY?remove ${#pkgs[@]} package(s)? [y/N] "
-  echo ""
-  if [[ $REPLY == "y" ]]; then
-    sudo pacman -Rs "${pkgs[@]}"
-  else
-    echo "aborted"
-  fi
-}
+# show packages installed by me
+alias packages='dnf repoquery --userinstalled'
 
 # Full system update
 function update() {
-  paru
+  sudo dnf upgrade --refresh
   command -v rustup &>/dev/null && rustup update
-  orphans
+  sudo dnf autoremove
   flatpak update
   flatpak uninstall --unused
-  flatpak repair
 }
-
-# idle
-alias sleepy='quickshell -c ~/.config/quickshell/idle-overlay'
 
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+path=("$HOME/.local/bin" "$HOME/.cargo/bin" $path)
+export PATH
 
 
 # ── Greeting ──────────────────────────────────────────────────────────────────
