@@ -1,6 +1,6 @@
 # melatonia's dotfiles
 
-[terminal](terminal.png)
+![terminal](terminal.png)
 
 my ~/.dotfiles that are managed by [stow](https://github.com/aspiers/stow)
 
