@@ -1,0 +1,12 @@
+--verbose = 1
+
+--ignore=^(\.git|\.gitignore|\.gitmodules)$
+
+--ignore=(?i)readme.*
+
+--ignore=(?i)licen[cs]e.*
+
+--ignore=.*\.md
+--ignore=.*\.png$
+
+--ignore=meloworld-dotfiles
