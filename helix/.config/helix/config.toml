@@ -4,8 +4,17 @@ theme = "adwaita-dark"
 [editor]
 line-number = "relative"
 cursorline = true
+mouse = true
+middle-click-paste = false 
+continue-comments = true
+bufferline = "multiple"
+
+auto-pairs = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal]
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)"
