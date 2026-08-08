@@ -9,6 +9,15 @@ zsh, zsh-autosuggestions, zsh-syntax-highlighting, stow, helix, fzf, zoxide, laz
 
 ---
 
+## installation
+
+'mkdir -p ~/.dotfiles && git clone https://github.com/melatonia/dotfiles.git ~/.dotfiles'
+
+set zsh as your default shell:
+'chsh -s $(which zsh)'
+
+---
+
 ## 🍀 credits
 
 the zsh prompt is inspired by the [jovial](https://github.com/zthxxx/jovial) theme. aimed to strip away the oh my zsh dependency.
