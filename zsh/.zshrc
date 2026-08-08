@@ -169,6 +169,7 @@ RPS1=""
 # ── Aliases ───────────────────────────────────────────────────────────────────
 alias zed='zeditor'
 alias vim='nvim'
+alias helix='hx'
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -221,9 +222,9 @@ function update() {
   flatpak uninstall --unused
 }
 
-export EDITOR=nvim
-export VISUAL=nvim
-export SUDO_EDITOR=nvim
+export EDITOR=hx
+export VISUAL=hx
+export SUDO_EDITOR=hx
 
 path=("$HOME/.local/bin" "$HOME/.cargo/bin" $path)
 export PATH
