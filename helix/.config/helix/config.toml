@@ -1,0 +1,11 @@
+# theme = "base16_default"
+theme = "adwaita-dark"
+
+[editor]
+line-number = "relative"
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
