@@ -1,6 +1,6 @@
 # melatonia's dotfiles
 
-![terminal](terminal.png)
+![terminal](assets/terminal.png)
 
 my ~/.dotfiles that are managed by [stow](https://github.com/aspiers/stow)
 
@@ -25,11 +25,23 @@ set zsh as your default shell:
     <h3>godot theme</h3>
   </summary>
 
+![godot](assets/godot.png)
+
 base color: #262626 or (rgb: 38,38,38)
 contrast: 0.17
 
 </details>
 
+<details>
+  <summary>
+    <h3>spotify theme</h3>
+  </summary>
+
+![spotify](assets/spotify.png)
+
+created for [spicetify](https://spicetify.app/), follows the cosmic default dark colors, green accent.
+
+</details>
 
 ---
 
