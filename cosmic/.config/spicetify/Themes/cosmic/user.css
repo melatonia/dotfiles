@@ -14,3 +14,10 @@
 .main-view-container__scroll-node-child {
     background-color: var(--spice-main) !important;
 }
+
+/* force sticky header on scroll to use theme colors instead of artwork color */
+.main-entityHeader-stickyHeader,
+[class*="stickyHeader"] {
+    background-color: var(--spice-main-elevated) !important;
+    background-image: none !important;
+}
