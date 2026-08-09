@@ -18,6 +18,21 @@ set zsh as your default shell:
 
 ---
 
+### extras
+
+<details>
+  <summary>
+    <h3>godot theme</h3>
+  </summary>
+
+base color: #262626 or (rgb: 38,38,38)
+contrast: 0.17
+
+</details>
+
+
+---
+
 ## 🍀 credits
 
 the zsh prompt is inspired by the [jovial](https://github.com/zthxxx/jovial) theme. aimed to strip away the oh my zsh dependency.
