@@ -31,13 +31,12 @@ base color: #262626 or (rgb: 38,38,38)
 contrast: 0.17
 
 </details>
-
 <details>
   <summary>
     <h3>spotify theme</h3>
   </summary>
 
-![spotify](assets/spotify.png?v=2)
+![spotify](assets/spotify.png?v=4)
 
 created for [spicetify](https://spicetify.app/), follows the cosmic default dark colors, green accent.
 
