@@ -37,7 +37,7 @@ contrast: 0.17
     <h3>spotify theme</h3>
   </summary>
 
-![spotify](assets/spotify.png)
+![spotify](assets/spotify.png?v=2)
 
 created for [spicetify](https://spicetify.app/), follows the cosmic default dark colors, green accent.
 
