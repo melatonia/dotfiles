@@ -15,5 +15,7 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.smart-tab]
+enable = false
 [keys.normal]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)"
