@@ -1,5 +1,4 @@
-# theme = "base16_default"
-theme = "adwaita-dark"
+theme = "base16_terminal"
 
 [editor]
 line-number = "relative"
