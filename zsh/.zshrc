@@ -226,7 +226,7 @@ export EDITOR=hx
 export VISUAL=hx
 export SUDO_EDITOR=hx
 
-path=("$HOME/.local/bin" "$HOME/.cargo/bin" $path)
+path=("$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.spicetify" $path)
 export PATH
 
 

@@ -1,0 +1,16 @@
+/* remove gradients on the top */
+.main-home-homeHeader,
+[class*="homeHeader"],
+.main-entityHeader-overlay,
+.main-actionBarBackground-background,
+.main-entityHeader-backgroundColor,
+[class*="entityHeader-backgroundColor"],
+[class*="actionBarBackground"] {
+    background: none !important;
+    background-color: transparent !important;
+}
+
+/* force main content background to stay flat */
+.main-view-container__scroll-node-child {
+    background-color: var(--spice-main) !important;
+}
