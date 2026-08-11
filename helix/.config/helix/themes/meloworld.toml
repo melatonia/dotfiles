@@ -1,0 +1,173 @@
+# meloworld.toml — Helix theme
+# Ported from meloworld.lua (Neovim). Accent: teal200 (#80cbc4)
+# Install: ~/.config/helix/themes/meloworld.toml
+# Enable:  theme = "meloworld"  in ~/.config/helix/config.toml
+# Reload:  :config-reload  (or restart hx)
+
+# ── Syntax scopes ────────────────────────────────────────────────────────
+
+attribute = "col-blue"
+keyword = "col-teal"
+"keyword.directive" = "col-teal"
+"keyword.control" = "col-teal"
+"keyword.control.conditional" = "col-teal"
+"keyword.control.repeat" = "col-teal"
+"keyword.control.return" = "col-teal"
+"keyword.control.import" = "col-teal"
+"keyword.function" = "col-teal"
+"keyword.operator" = "col-fg-subtle"
+"keyword.storage" = "col-yellow"
+
+namespace = "col-yellow"
+punctuation = "col-fg-subtle"
+"punctuation.bracket" = "col-fg-subtle"
+"punctuation.delimiter" = "col-fg-subtle"
+"punctuation.special" = "col-teal"
+operator = "col-fg-subtle"
+special = "col-teal"
+
+"variable.other.member" = "col-green"
+variable = "col-fg"
+"variable.parameter" = { fg = "col-fg-subtle", modifiers = ["italic"] }
+"variable.builtin" = "col-red"
+
+type = "col-yellow"
+"type.builtin" = "col-yellow"
+"type.enum.variant" = "col-orange"
+constructor = "col-blue"
+
+function = "col-blue"
+"function.macro" = "col-teal"
+"function.builtin" = "col-hint"
+"function.method" = "col-blue"
+
+tag = "col-red"
+"tag.attribute" = "col-orange"
+"tag.delimiter" = "col-fg-subtle"
+
+comment = { fg = "col-comment", modifiers = ["italic"] }
+
+constant = "col-orange"
+"constant.builtin" = "col-orange"
+string = "col-green"
+"string.regexp" = "col-hint"
+"string.special" = "col-hint"
+"constant.numeric" = "col-orange"
+"constant.character.escape" = "col-hint"
+
+# lifetimes (Rust) — label is also used generically for loop labels etc.
+label = "col-red"
+"label.lifetime" = { fg = "col-orange", modifiers = ["italic"] }
+
+storageclass = "col-yellow"
+
+# ── Markup ───────────────────────────────────────────────────────────────
+
+"markup.heading" = { fg = "col-fg", modifiers = ["bold"] }
+"markup.bold" = { fg = "col-blue", modifiers = ["bold"] }
+"markup.italic" = { fg = "col-blue", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "col-hint", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "col-blue", modifiers = ["italic"] }
+"markup.raw" = "col-green"
+"markup.list" = "col-orange"
+"markup.quote" = { fg = "col-fg-subtle", modifiers = ["italic"] }
+
+# ── Diff ─────────────────────────────────────────────────────────────────
+
+"diff.plus" = "col-green"
+"diff.minus" = "col-red"
+"diff.delta" = "col-yellow"
+
+# ── Editor UI ────────────────────────────────────────────────────────────
+
+# "ui.background" = { bg = "col-bg" }
+"ui.background" = {}
+"ui.background.separator" = { fg = "col-border" }
+"ui.linenr" = { fg = "col-lnum" }
+"ui.linenr.selected" = { fg = "col-lnum-act", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "col-fg-subtle", bg = "col-bg-panel" }
+"ui.statusline.inactive" = { fg = "col-fg-subtle", bg = "col-bg-panel" }
+"ui.statusline.normal" = { fg = "col-bg", bg = "col-teal", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "col-bg", bg = "col-green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "col-bg", bg = "col-orange", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "col-fg", bg = "col-bg-float" }
+"ui.window" = { fg = "col-border" }
+"ui.help" = { fg = "col-fg", bg = "col-bg-float" }
+
+"ui.text" = { fg = "col-fg" }
+"ui.text.focus" = { fg = "col-fg" }
+"ui.text.inactive" = "col-fg-subtle"
+"ui.text.directory" = { fg = "col-teal" }
+
+"ui.virtual" = { fg = "col-lnum" }
+"ui.virtual.ruler" = { bg = "col-bg-panel" }
+"ui.virtual.jump-label" = { fg = "col-bg", bg = "col-orange", modifiers = ["bold"] }
+"ui.virtual.indent-guide" = { fg = "col-lnum" }
+"ui.virtual.whitespace" = { fg = "col-lnum" }
+
+"ui.selection" = { bg = "col-bg-sel" }
+"ui.selection.primary" = { bg = "col-bg-sel" }
+
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "col-bg", bg = "col-teal" }
+"ui.cursor.select" = { bg = "col-orange" }
+"ui.cursor.insert" = { bg = "col-fg" }
+"ui.cursor.match" = { fg = "col-teal", modifiers = ["bold", "underlined"] }
+
+# Full-line fill (matches Neovim CursorLine, not an underline)
+"ui.cursorline.primary" = { bg = "col-bg-line" }
+
+"ui.highlight" = { bg = "col-bg-sel" }
+
+"ui.menu" = { fg = "col-fg", bg = "col-bg-float" }
+"ui.menu.selected" = { fg = "col-bg", bg = "col-teal" }
+"ui.menu.scroll" = { fg = "col-fg-subtle", bg = "col-bg-panel" }
+
+"ui.bufferline" = { fg = "col-fg-subtle", bg = "col-bg-panel" }
+"ui.bufferline.active" = { fg = "col-fg", bg = "col-bg", modifiers = ["bold"] }
+
+"ui.gutter" = { bg = "col-bg" }
+"ui.gutter.selected" = { bg = "col-bg" }
+
+# ── Diagnostics ──────────────────────────────────────────────────────────
+
+"diagnostic.hint" = { underline = { color = "col-hint", style = "curl" } }
+"diagnostic.info" = { underline = { color = "col-blue", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "col-orange", style = "curl" } }
+"diagnostic.error" = { underline = { color = "col-red-bold", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "col-orange"
+error = "col-red-bold"
+info = "col-blue"
+hint = "col-hint"
+
+# ── Palette ──────────────────────────────────────────────────────────────
+# Names are prefixed `col-` throughout so they can never collide with a
+# scope key above (this is what broke the last draft: a palette color
+# and a scope were both literally named "hint").
+
+[palette]
+col-bg          = "#212121"
+col-bg-panel    = "#1c1c1c"
+col-bg-float    = "#242424"
+col-bg-sel      = "#2d4a48"
+col-bg-line     = "#272727"
+col-fg          = "#eeeeee"
+col-fg-subtle   = "#9e9e9e"
+col-border      = "#2c2c2c"
+col-teal        = "#80cbc4"
+col-hint        = "#26a69a"
+col-blue        = "#81d4fa"
+col-green       = "#a5d6a7"
+col-yellow      = "#fff59d"
+col-orange      = "#ffcc80"
+col-red         = "#ef9a9a"
+col-red-bold    = "#ef5350"
+col-comment     = "#626262"
+col-lnum        = "#3e3e3e"
+col-lnum-act    = "#6a6a6a"
