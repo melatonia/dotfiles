@@ -13,8 +13,8 @@ setopt hist_reduce_blanks    # Remove superfluous blanks before recording
 setopt share_history         # Share history across all open terminals
 setopt append_history        # Append rather than overwrite history on exit
 setopt auto_cd               # type a dir name to cd into it
-setopt correct               # suggest corrections for mistyped commands
 setopt interactive_comments  # allow # comments in the interactive shell
+# setopt correct               # suggest corrections for mistyped commands
 
 # ── Completion ────────────────────────────────────────────────────────────────
 autoload -Uz compinit
