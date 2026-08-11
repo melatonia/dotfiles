@@ -177,6 +177,10 @@ alias ...='cd ../..'
 eval "$(zoxide init zsh --cmd cd)"
 
 # fzf with fd backend
+# key-bindings.zsh gives:
+#   Ctrl+T (fuzzy-find file → insert path),
+#   Alt+C (fuzzy-find dir → cd into it), Ctrl+R (fuzzy history search, nicer than zsh's built-in one).
+[[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && source /usr/share/fzf/shell/key-bindings.zsh
 
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]]   && source /usr/share/fzf/completion.zsh
