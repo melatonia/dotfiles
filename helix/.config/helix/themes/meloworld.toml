@@ -129,8 +129,8 @@ storageclass = "col-yellow"
 "ui.bufferline" = { fg = "col-fg-subtle", bg = "col-bg-panel" }
 "ui.bufferline.active" = { fg = "col-fg", bg = "col-bg", modifiers = ["bold"] }
 
-"ui.gutter" = { bg = "col-bg" }
-"ui.gutter.selected" = { bg = "col-bg" }
+"ui.gutter" = {}
+"ui.gutter.selected" = {}
 
 # ── Diagnostics ──────────────────────────────────────────────────────────
 
