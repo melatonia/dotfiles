@@ -1,18 +1,21 @@
 # ── History ──────────────────────────────────────────────────────────────────
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10000   # commands kept in memory during the session
+SAVEHIST=10000   # commands kept in HISTFILE on disk
 
+# Deduplicate the path/PATH array-scalar pair in place (typeset -U = unique).
+# Keeps repeated `path+=(...)` appends further down from creating duplicate
+# entries every time this file is re-sourced.
 typeset -U path PATH
 
-setopt extended_history      # Record timestamp of command in HISTFILE
-setopt hist_ignore_dups      # Ignore consecutive duplicates
-setopt hist_ignore_all_dups  # Remove older duplicate entries from history
-setopt hist_ignore_space     # Don't save commands prefixed with a space
-setopt hist_reduce_blanks    # Remove superfluous blanks before recording
-setopt share_history         # Share history across all open terminals
-setopt append_history        # Append rather than overwrite history on exit
-setopt auto_cd               # type a dir name to cd into it
+setopt extended_history      # record timestamp + duration of each command in HISTFILE
+setopt hist_ignore_dups      # ignore consecutive duplicates
+setopt hist_ignore_all_dups  # remove older duplicate entries from history, keep newest
+setopt hist_ignore_space     # don't save commands prefixed with a space (quick "don't log this")
+setopt hist_reduce_blanks    # remove superfluous blanks before recording
+setopt share_history         # share history live across all open terminals
+setopt append_history        # append rather than overwrite history on exit
+setopt auto_cd               # type a dir name (no `cd`) to cd into it
 setopt interactive_comments  # allow # comments in the interactive shell
 # setopt correct               # suggest corrections for mistyped commands
 
@@ -21,25 +24,32 @@ autoload -Uz compinit
 
 # Only regenerate .zcompdump once per day
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit -i
+  compinit -i      # dump is stale (or missing) → rebuild, skip insecure-dir prompt
 else
-  compinit -C -i
+  compinit -C -i    # dump is fresh → trust it, skip the security check too
 fi
 
 zstyle :compinstall filename '$HOME/.zshrc'
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*' menu select                                               # arrow-key-navigable completion menu
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'  # case-insensitive + partial-word matching
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"                          # colorize completions like `ls`
+zstyle ':completion:*' squeeze-slashes true                                      # collapse foo//bar → foo/bar
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'                # yellow section headers in the menu
 
 # ── Keybindings ───────────────────────────────────────────────────────────────
 bindkey -e  # Emacs keybindings
 
 # ── Plugins ───────────────────────────────────────────────────────────────────
+# Both guarded with [[ -f ]] so a fresh machine without these packages
+# installed doesn't throw a "no such file" error on every new shell.
+
 [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Greys out a suggested completion from history as you type; → or End to accept.
+# NOTE: load order matters — autosuggestions should come after
+# syntax-highlighting so highlighting doesn't get applied to the ghost
+# suggestion text.
 [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -182,9 +192,8 @@ eval "$(zoxide init zsh --cmd cd)"
 #   Alt+C (fuzzy-find dir → cd into it), Ctrl+R (fuzzy history search, nicer than zsh's built-in one).
 [[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && source /usr/share/fzf/shell/key-bindings.zsh
 
-[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-[[ -f /usr/share/fzf/completion.zsh ]]   && source /usr/share/fzf/completion.zsh
-
+# fd instead of the default `find` backend — respects .gitignore, much
+# faster, and these commands feed both Ctrl+T and Alt+C above.
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
@@ -197,16 +206,18 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 
-# lazygit
+# lazygit — terminal UI for git
 alias lg='lazygit'
 
-# ls / eza
+# ls / eza — use eza (colorful, git-aware, icon-capable `ls` replacement)
+# if installed, otherwise fall back to plain `ls` so this doesn't break
+# on a machine that doesn't have it.
 if command -v eza &>/dev/null; then
   alias ls='eza --icons --group-directories-first'
-  alias ll='eza -lh --icons --group-directories-first --git'
-  alias la='eza -lah --icons --group-directories-first --git'
-  alias l.='eza -a --icons --group-directories-first'
-  alias lt='eza --tree --icons --level=2'          # directory tree
+  alias ll='eza -lh --icons --group-directories-first --git'   # long listing + git status column
+  alias la='eza -lah --icons --group-directories-first --git'  # long + all (dotfiles)
+  alias l.='eza -a --icons --group-directories-first'          # just dotfiles, short form
+  alias lt='eza --tree --icons --level=2'                      # directory tree, 2 levels deep
 else
   alias ls='ls --color=auto'
   alias ll='ls -l --color=auto'
@@ -214,10 +225,9 @@ else
   alias l.='ls -a --color=auto'
 fi
 
-# show packages installed by me
+# list packages you explicitly installed (excludes deps pulled in automatically)
 alias packages='dnf repoquery --userinstalled'
 
-# Full system update
 function update() {
   sudo dnf upgrade --refresh
   command -v rustup &>/dev/null && rustup update
@@ -230,6 +240,8 @@ export EDITOR=hx
 export VISUAL=hx
 export SUDO_EDITOR=hx
 
+# Prepend user-local bin dirs so binaries installed there are found
+# before system-wide ones of the same name.
 path=("$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.spicetify" $path)
 export PATH
 
@@ -242,8 +254,12 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
     '---''(_/--'  `-'\_)  melo.
 EOF
 
-# bat
+# bat — syntax-highlighted `cat`/pager replacement
+# MANPAGER: strip man's backspace-encoded bold/underline (`col -bx`),
+# then hand the plain text to bat with man-page syntax highlighting.
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="base16"
 
+# -p/--style=plain drops bat's line numbers/git-diff gutter so it reads
+# like plain `cat` output, just with syntax highlighting kept.
 alias cat='bat --paging=never --style=plain'
