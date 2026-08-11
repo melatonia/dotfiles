@@ -61,8 +61,31 @@ zmodload zsh/datetime  # provides $EPOCHREALTIME
 typeset -gF _melo_cmd_start=0
 typeset -gi _melo_last_exit=0
 
-function _melo_preexec()  { _melo_cmd_start=$EPOCHREALTIME; }
+function _melo_preexec() {
+  _melo_cmd_start=$EPOCHREALTIME;
+
+  # 1. Extract only the first line of multi-line/pasted commands
+  local cmd="${1%%$'\n'*}"
+  # 2. Convert tabs to single spaces
+  cmd="${cmd//$'\t'/ }"
+
+  # 3. Output OSC 0 safely:
+  #    -r         : Raw mode (never evaluate % or \ in user commands)
+  #    -n         : Suppress extra trailing newline
+  #    --         : Stop flag parsing (protects commands starting with '-')
+  #    >/dev/tty  : Bypass Zsh stdout line-length tracking (prevents trailing '%')
+  print -rn -- $'\e]0;' "${cmd[1,128]}" $'\a' >/dev/tty
+}
+
 function _melo_precmd_capture() { _melo_last_exit=$?; }
+
+# Report cwd as the terminal tab title once the command finishes (OSC 0).
+# Report file URL so COSMIC Terminal knows where to launch new tabs (OSC 7).
+function _melo_set_title() {
+  # OSC 0 : Reverts visual tab title to current directory (%~) when idle
+  # OSC 7 : Informs COSMIC Terminal of $PWD so Ctrl+Shift+T spawns new tabs here
+  print -Pn "\e]0;%~\a\e]7;file://${HOST:-localhost}${PWD}\a" >/dev/tty
+}
 
 function _melo_format_elapsed() {
   local -F e=$(( EPOCHREALTIME - _melo_cmd_start ))
@@ -79,6 +102,7 @@ function _melo_format_elapsed() {
 
 add-zsh-hook preexec _melo_preexec
 add-zsh-hook precmd  _melo_precmd_capture  # must be registered FIRST
+add-zsh-hook precmd  _melo_set_title
 
 typeset -gA MELO_PALETTE=(
   host    '%F{#a5d6a7}'   # green200    – accent
