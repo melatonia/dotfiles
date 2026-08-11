@@ -6,13 +6,24 @@ line-number = "relative"
 gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
 cursorline = true
 mouse = true
-middle-click-paste = false 
+middle-click-paste = false
 continue-comments = true
 true-color = true
 bufferline = "multiple"
 color-modes = true
 
 auto-pairs = true
+
+end-of-line-diagnostics = "hint"
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "read-only-indicator", "file-modification-indicator"]
+center = ["file-name"]
+right = ["diagnostics", "register", "file-encoding", "file-type", "separator", "position"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -24,6 +35,9 @@ render = true
 
 [editor.smart-tab]
 enable = false
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [keys.normal]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)"
