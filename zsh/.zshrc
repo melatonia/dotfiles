@@ -201,7 +201,6 @@ trap '_melo_winch' WINCH
 RPS1=""
 
 # ── Aliases ───────────────────────────────────────────────────────────────────
-alias zed='zeditor'
 alias vim='nvim'
 alias helix='hx'
 alias ..='cd ..'
