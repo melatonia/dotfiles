@@ -4,6 +4,10 @@ vim.g.maploaclleader = " "
 
 local map = vim.keymap.set
 
+-- file
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "save file"} )
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "quit"} )
+
 -- telescope 
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>",  { desc = "live grep" })
