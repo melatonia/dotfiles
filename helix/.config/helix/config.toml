@@ -23,7 +23,7 @@ right = ["diagnostics", "register", "file-encoding", "file-type", "separator", "
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.select = "VISUAL"
 
 [editor.cursor-shape]
 insert = "bar"
