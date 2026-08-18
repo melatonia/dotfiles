@@ -40,4 +40,5 @@ enable = false
 cursor-line = "warning"
 
 [keys.normal]
-C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)"
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-q = ":q" # Maps Ctrl-q to the typable command :q which is an alias for :quit (quit)
